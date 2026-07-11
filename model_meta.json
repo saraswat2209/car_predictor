@@ -1,0 +1,136 @@
+{
+  "best_model_name": "Gradient Boosting",
+  "r2_score": 0.9647,
+  "results": [
+    {
+      "Model": "Linear Regression",
+      "R2 Score": 0.7071,
+      "MAE (Lakhs)": 1.338,
+      "RMSE (Lakhs)": 2.595
+    },
+    {
+      "Model": "Ridge Regression",
+      "R2 Score": 0.7071,
+      "MAE (Lakhs)": 1.338,
+      "RMSE (Lakhs)": 2.595
+    },
+    {
+      "Model": "Decision Tree",
+      "R2 Score": 0.9157,
+      "MAE (Lakhs)": 0.893,
+      "RMSE (Lakhs)": 1.392
+    },
+    {
+      "Model": "Random Forest",
+      "R2 Score": 0.9447,
+      "MAE (Lakhs)": 0.74,
+      "RMSE (Lakhs)": 1.128
+    },
+    {
+      "Model": "Gradient Boosting",
+      "R2 Score": 0.9647,
+      "MAE (Lakhs)": 0.579,
+      "RMSE (Lakhs)": 0.901
+    }
+  ],
+  "brands": [
+    "Audi",
+    "BMW",
+    "Ford",
+    "Honda",
+    "Hyundai",
+    "Mahindra",
+    "Maruti",
+    "Tata",
+    "Toyota",
+    "Volkswagen"
+  ],
+  "models_by_brand": {
+    "Hyundai": [
+      "Creta",
+      "Venue",
+      "Verna",
+      "i10",
+      "i20"
+    ],
+    "BMW": [
+      "3 Series",
+      "5 Series",
+      "X1"
+    ],
+    "Audi": [
+      "A4",
+      "A6"
+    ],
+    "Toyota": [
+      "Etios",
+      "Fortuner",
+      "Glanza",
+      "Innova"
+    ],
+    "Mahindra": [
+      "Bolero",
+      "Scorpio",
+      "XUV300",
+      "XUV500"
+    ],
+    "Maruti": [
+      "Alto",
+      "Baleno",
+      "Dzire",
+      "Ertiga",
+      "Swift",
+      "WagonR"
+    ],
+    "Honda": [
+      "Amaze",
+      "City",
+      "Jazz",
+      "WR-V"
+    ],
+    "Ford": [
+      "EcoSport",
+      "Endeavour",
+      "Figo"
+    ],
+    "Tata": [
+      "Altroz",
+      "Harrier",
+      "Nexon",
+      "Tiago"
+    ],
+    "Volkswagen": [
+      "Polo",
+      "Vento"
+    ]
+  },
+  "fuel_types": [
+    "CNG",
+    "Diesel",
+    "Electric",
+    "Petrol"
+  ],
+  "transmissions": [
+    "Automatic",
+    "Manual"
+  ],
+  "owner_types": [
+    "First",
+    "Fourth & Above",
+    "Second",
+    "Third"
+  ],
+  "locations": [
+    "Ahmedabad",
+    "Bangalore",
+    "Chennai",
+    "Delhi",
+    "Hyderabad",
+    "Jaipur",
+    "Kolkata",
+    "Lucknow",
+    "Mumbai",
+    "Pune"
+  ],
+  "current_year": 2026
+}

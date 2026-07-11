@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ResaleIQ — Used Car Price Predictor</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="odometer-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">RQ</span>
+    <div class="brand-text">
+      <span class="brand-name">ResaleIQ</span>
+      <span class="brand-tag">Used Car Valuation Engine</span>
+    </div>
+  </div>
+  <div class="model-chip" id="modelChip">
+    <span class="dot"></span> <span id="modelChipText">loading model…</span>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="panel form-panel">
+    <h1>What's it worth today?</h1>
+    <p class="sub">Enter the car's details. The engine behind this reads year, usage, engine specs and market signals the way a dealer would — then prices it in seconds.</p>
+
+    <form id="predictForm">
+      <div class="grid two">
+        <div class="field">
+          <label for="brand">Brand</label>
+          <select id="brand" required></select>
+        </div>
+        <div class="field">
+          <label for="model">Model</label>
+          <select id="model" required></select>
+        </div>
+      </div>
+
+      <div class="grid three">
+        <div class="field">
+          <label for="year">Year of purchase</label>
+          <input type="number" id="year" min="2005" max="2026" value="2019" required />
+        </div>
+        <div class="field">
+          <label for="km_driven">Kilometers driven</label>
+          <input type="number" id="km_driven" min="0" value="45000" required />
+        </div>
+        <div class="field">
+          <label for="owner_type">Ownership</label>
+          <select id="owner_type" required></select>
+        </div>
+      </div>
+
+      <div class="grid three">
+        <div class="field">
+          <label for="fuel_type">Fuel type</label>
+          <select id="fuel_type" required></select>
+        </div>
+        <div class="field">
+          <label for="transmission">Transmission</label>
+          <select id="transmission" required></select>
+        </div>
+        <div class="field">
+          <label for="location">City</label>
+          <select id="location" required></select>
+        </div>
+      </div>
+
+      <div class="grid three">
+        <div class="field">
+          <label for="engine_cc">Engine (cc)</label>
+          <input type="number" id="engine_cc" min="600" value="1197" required />
+        </div>
+        <div class="field">
+          <label for="power_bhp">Power (bhp)</label>
+          <input type="number" id="power_bhp" min="20" value="82" step="0.1" required />
+        </div>
+        <div class="field">
+          <label for="mileage_kmpl">Mileage (km/l)</label>
+          <input type="number" id="mileage_kmpl" min="5" value="18" step="0.1" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="seats">Seats</label>
+        <select id="seats">
+          <option>4</option>
+          <option selected>5</option>
+          <option>6</option>
+          <option>7</option>
+        </select>
+      </div>
+
+      <button type="submit" class="predict-btn">
+        <span>Estimate resale value</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h11M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+  </section>
+
+  <section class="panel result-panel">
+    <div class="result-idle" id="resultIdle">
+      <div class="gauge-placeholder">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 6"/>
+          <text x="70" y="76" text-anchor="middle" font-family="DM Mono" font-size="13" fill="var(--muted)">₹ —</text>
+        </svg>
+      </div>
+      <p>Fill in the form and click <strong>Estimate resale value</strong> to see the predicted price.</p>
+    </div>
+
+    <div class="result-live hidden" id="resultLive">
+      <span class="eyebrow">Estimated resale value</span>
+      <div class="price-lakhs" id="priceLakhs">₹ 0.00 L</div>
+      <div class="price-inr" id="priceInr">≈ ₹0</div>
+
+      <div class="explain">
+        <div class="explain-row"><span>Model used</span><strong id="modelUsedText">—</strong></div>
+        <div class="explain-row"><span>Car age at valuation</span><strong id="carAgeText">—</strong></div>
+        <div class="explain-row"><span>Usage intensity</span><strong id="usageText">—</strong></div>
+      </div>
+
+      <p class="disclaimer">This is a machine-learning estimate on a demo dataset built for an academic mini-project — not a real market valuation.</p>
+    </div>
+
+    <div class="result-error hidden" id="resultError">
+      <p id="errorText">Something went wrong.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  Built with Regression &middot; Categorical Encoding &middot; Feature Engineering &mdash; scikit-learn + Flask
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
